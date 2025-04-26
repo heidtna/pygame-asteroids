@@ -52,6 +52,11 @@ def main():
             if asteroid.is_collision(player):
                 print("Game over!")
                 raise SystemExit
+            
+            for shot in shots:
+                if asteroid.is_collision(shot):
+                    shot.kill()
+                    asteroid.split()
 
         # Always keep this last
         pygame.display.flip()
